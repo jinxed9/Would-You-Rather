@@ -11,20 +11,21 @@ class NewQuestion extends Component{
     toHome: false,
   }
 
-  handleOptionOneChange = (e) => {
-    const optionOneText = e.target.value
-    
-    this.setState(() => ({
-      optionOneText,
-    }))
+  handleOptionChange = (e) => {
+    const optionText = e.target.value
+    const fromOption = e.target.placeholder
 
-  }
+    if(fromOption === 'Option 1'){
+      this.setState(() => ({
+        optionOneText: optionText
+      }))
+    }
+    if(fromOption === 'Option 2'){
+      this.setState(() => ({
+        optionTwoText: optionText
+      }))
+    }
 
-  handleOptionTwoChange = (e) => {
-    const optionTwoText = e.target.value
-    this.setState(() => ({
-      optionTwoText
-    }))
   }
 
 
@@ -72,14 +73,14 @@ class NewQuestion extends Component{
               className="input-text"
               type="text" 
               placeholder="Option 1"
-              onChange={ this.handleOptionOneChange } 
+              onChange={ this.handleOptionChange } 
               value={ optionOneText }/>
             <h3>-- or -- </h3>
             <input
               className="input-text" 
               type="text" 
               placeholder="Option 2" 
-              onChange={ this.handleOptionTwoChange }
+              onChange={ this.handleOptionChange }
               value={ optionTwoText }/>
             <div className='wrapper'>
               <button

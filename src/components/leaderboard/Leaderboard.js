@@ -1,26 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import LeaderboardCard from './LeaderboardCard.js'
 
-class Leaderboard extends Component{
-	render(){
-		const { rankedUsers , authedUser, location } = this.props
-
-		if(location.state !== "fromNav" || !authedUser){
-      		return <Redirect to={{pathname:"/signin", state:"/leaderboard"}}/>
-    	}
-
-		return(
-			<div>
-				<ol>
-					{rankedUsers.map((user,index) => (
-							<LeaderboardCard key={user.id} user={user} rank={index}/>
-					))}	
-				</ol>
-			</div>
-		)
+function Leaderboard({ rankedUsers , authedUser, location }) {
+	if(location.state !== "fromNav" || !authedUser){
+  		return <Redirect to={{pathname:"/signin", state:"/leaderboard"}}/>
 	}
+
+	return(
+		<div>
+			<ol>
+				{rankedUsers.map((user,index) => (
+						<LeaderboardCard key={user.id} user={user} rank={index}/>
+				))}	
+			</ol>
+		</div>
+	)	
 }
 
 function mapStateToProps( {users, authedUser} ){
