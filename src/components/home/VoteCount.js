@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class VoteCount extends Component{
-	render(){
-    	const { votes } = this.props
-		return(
-			<div>
-            	<p>{`Vote Count: ${votes.length}`}</p>
-      		</div>
-		)
-	}
+function VoteCount({ votes }){
+	return(
+		<div>
+        	<p>{`Vote Count: ${votes.length}`}</p>
+  		</div>
+	)
 }
 
 

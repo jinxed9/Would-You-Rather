@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class VotePercent extends Component{
-	render(){
-    	const { thisOption, otherOption } = this.props
-		return(
-			<div>
-            	<p>{`${thisOption.votes.length/(thisOption.votes.length+otherOption.votes.length)*100}%`}</p>
-      		</div>
-		)
-	}
+function VotePercent({ thisOption, otherOption }){
+	return(
+		<div>
+        	<p>{`${thisOption.votes.length/(thisOption.votes.length+otherOption.votes.length)*100}%`}</p>
+  		</div>
+	)
 }
 
 
